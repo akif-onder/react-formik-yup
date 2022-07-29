@@ -36,7 +36,7 @@ const LoginPage = () => {
           actions.resetForm();
           actions.setSubmitting(false)
         }} >
-          {({values, handleChange, errors})=>(
+          {({values, handleChange, errors, touched})=>(
              <Form>
              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
              <TextField
@@ -47,6 +47,8 @@ const LoginPage = () => {
                variant="outlined"
                value={values.fullName}
                onChange={handleChange}
+               helperText={touched.fullName && errors.fullName}
+               error={touched.fullName && Boolean(errors.fullName)}
              />
              <TextField
                label="Email"
